@@ -33,12 +33,12 @@ const finalSpaceCharacters = [
 
 function App() {
   // We'll be updating our new characters state
-  const [characters, updateCharacters ] = useState(finalSpaceCharacters);
+  const [characters, updateCharacters] = useState(finalSpaceCharacters);
   function handleOnDragEnd(result) {
     // console.log(result);
-    const items  = Array.from(characters);
+    const items = Array.from(characters);
     console.log("Current-items", items);
-    const [reorderedItem ] = items.splice(result.source.index, 1); 
+    const [reorderedItem] = items.splice(result.source.index, 1);
     console.log("reordered-item", reorderedItem);
     items.splice(result.destination.index, 0, reorderedItem);
     console.log("New-items", items);
@@ -59,7 +59,7 @@ function App() {
                       <Draggable key={id} draggableId={id} index={index} >
                         {
                           (provided) => (
-                            <li  ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                            <li ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
                               <div className="characters-thumb">
                                 <img src={thumb} alt={`${name} Thumb`} />
                               </div>
